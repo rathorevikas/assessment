@@ -1,0 +1,24 @@
+.user_list_item{
+    padding: 15px;
+    text-align: justify;
+    width: 300px;
+    border: 5px solid lightgray;
+}
+
+.user_list_options{
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.user_list_data{
+   position: relative;
+   bottom: 1.8rem;
+}
+
+.user_list_data div {
+   display: flex;
+}
+
+.user_list_data div p {
+    margin-left: 0.5rem;
+ }

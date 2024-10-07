@@ -1,0 +1,8 @@
+.users_list_container{
+    display: flex;
+    padding: 1rem;
+    gap: 2.5rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
