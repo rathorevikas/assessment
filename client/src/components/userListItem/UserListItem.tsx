@@ -1,4 +1,4 @@
-import { Grid, IconButton, Paper, Typography } from "@mui/material";
+import { Grid2 as Grid, IconButton, Paper, Typography } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import PersonIcon from "@mui/icons-material/Person";
@@ -15,7 +15,7 @@ const UserListItem = ({ user }: { user: any }) => {
     <>
       <Paper className="user_list_item">
         <Grid container className="user_list_options">
-          <Grid item>
+          <Grid>
             <IconButton
               sx={{ zIndex: 2 }}
               onClick={() => setOpenEditModal(true)}
@@ -23,7 +23,7 @@ const UserListItem = ({ user }: { user: any }) => {
               <EditIcon />
             </IconButton>
           </Grid>
-          <Grid item>
+          <Grid>
             <IconButton
               sx={{ zIndex: 2 }}
               onClick={() => setOpenDeleteModal(true)}
@@ -33,15 +33,15 @@ const UserListItem = ({ user }: { user: any }) => {
           </Grid>
         </Grid>
         <Grid className="user_list_data">
-          <Grid item>
-            <Typography>Id:</Typography>
-            <Typography> {user?.id}</Typography>
+          <Grid>
+            <Typography fontWeight={"700"}>Id:</Typography>
+            <Typography width={"190px"}> {user?.id}</Typography>
           </Grid>
-          <Grid item>
+          <Grid>
             <PersonIcon />
             <Typography>{user?.name}</Typography>
           </Grid>
-          <Grid item>
+          <Grid>
             <EmailIcon />
             <Typography>{user?.email}</Typography>
           </Grid>
@@ -49,6 +49,9 @@ const UserListItem = ({ user }: { user: any }) => {
       </Paper>
       {openEditModal && (
         <EditModal
+          id={user?.id}
+          userName={user?.name}
+          userEmail={user?.email}
           openEditModal={openEditModal}
           setOpenEditModal={setOpenEditModal}
         />

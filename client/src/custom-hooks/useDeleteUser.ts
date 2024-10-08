@@ -1,10 +1,11 @@
 import { useDispatch } from "react-redux";
 import { deleteSingleUser } from "../store/userListSlice";
+import { API_DOMAIN } from "../utils/constant";
 
 const useDeleteUser = () => {
   const dispatch = useDispatch();
   async function deleteOneUser(id: string) {
-    const res = await fetch("http://localhost:4002/api/users/" + id, {
+    const res = await fetch(API_DOMAIN + id, {
       method: "DELETE",
     });
     const data = await res.json();

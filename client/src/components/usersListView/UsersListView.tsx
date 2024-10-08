@@ -1,14 +1,16 @@
 import React from "react";
-import { Grid } from "@mui/material";
+import { Grid2 as Grid } from "@mui/material";
 import UserListItem from "../userListItem/UserListItem";
-import './styles.css'
+import "./styles.css";
 import { useSelector } from "react-redux";
 
 const UsersListView = () => {
-  const usersList = useSelector ((state: any) => state.usersList.users);
+  const usersList = useSelector((state: any) => state.usersList.users);
   return (
     <Grid className="users_list_container">
-      {usersList?.map((user :any) => <UserListItem key={user?.id} user={user}></UserListItem>)}
+      {usersList?.map((user: any) => (
+        <UserListItem key={user?.id} user={user}></UserListItem>
+      ))}
     </Grid>
   );
 };

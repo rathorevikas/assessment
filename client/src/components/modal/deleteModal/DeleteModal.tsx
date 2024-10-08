@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, Button, Grid, Modal, Typography } from "@mui/material";
+import { Box, Button,  Grid2 as Grid, Modal, Typography } from "@mui/material";
 import useDeleteUser from "../../../custom-hooks/useDeleteUser";
 import { DeleteModalProps } from "./typing";
 import "./styles.css";
@@ -15,8 +15,11 @@ const DeleteModal = ({
     position: "absolute",
     top: "50%",
     left: "50%",
+    display:'flex',
+    flexDirection:'column',
+    alignItem:'center',
     transform: "translate(-50%, -50%)",
-    maxWidth: 400,
+    width: "max-content",
     bgcolor: "background.paper",
     border: "2px solid #000",
     boxShadow: 24,

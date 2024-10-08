@@ -1,36 +1,53 @@
 import { useEffect, useState } from "react";
-import { EditModalProps } from "./typing";
-import { Box, Button, Grid2 as Grid, Modal, TextField, Typography } from "@mui/material";
-import useEditUser from "../../../custom-hooks/useEditUser";
+import {
+  Box,
+  Button,
+  Grid2 as Grid,
+  Modal,
+  TextField,
+  Typography,
+} from "@mui/material";
+import useAddUser from "../../../custom-hooks/useAddUser";
 import { validateEmail, validateName } from "../../../utils/common";
+import { AddModalProps, Iuser } from "./typings";
+import { useSelector } from "react-redux";
 
-const EditModal = ({
-  id,
-  userName,
-  userEmail,
-  openEditModal,
-  setOpenEditModal,
-}: EditModalProps) => {
-  const { editOneUser } = useEditUser();
+const AddModal = ({ openAddModal, setOpenAddModal }: AddModalProps) => {
+  const { addOneUser } = useAddUser();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [isError, setIsError] = useState("");
+  const usersList = useSelector((state: any) => state.usersList.users);
   useEffect(() => {
-    setName(userName);
-    setEmail(userEmail);
-  }, []);
+    setEmail("");
+    setName("");
+    setIsError("");
+  }, [openAddModal]);
   const handleClose = () => {
-    setOpenEditModal(false);
+    setOpenAddModal(false);
+  };
+
+  const uniQueEmail = (email: string) => {
+    return usersList?.find((user: Iuser) => user.email === email);
   };
   const handleSave = () => {
-    if (id && validateName(name) && validateEmail(email)) {
-      editOneUser(id, name, email).then((res) => {
-        if (res?.id) {
-          setOpenEditModal(false);
-        }
-      }).catch(err =>  setIsError("Something Went Wrong !"))
+    console.log(uniQueEmail(email), "##$##$#$#$#$##");
+    if (!uniQueEmail(email)) {
+      if (validateName(name) && validateEmail(email)) {
+        addOneUser(name, email)
+          .then((res) => {
+            if (res?.id) {
+              setOpenAddModal(false);
+              setName("");
+              setEmail("");
+            }
+          })
+          .catch((err) => setIsError("Something Went Wrong !"));
+      } else {
+        setIsError("Please Provide Vaild Inputs !");
+      }
     } else {
-      setIsError("Please Provide Vaild Inputs !");
+      setIsError("Email Already Exists !");
     }
   };
   const style = {
@@ -47,19 +64,19 @@ const EditModal = ({
 
   return (
     <Modal
-      open={openEditModal}
+      open={openAddModal}
       onClose={handleClose}
       aria-labelledby="Delete-modal"
       aria-describedby="Delete-modal-description"
     >
       <Box sx={style}>
-      <Typography
+        <Typography
           id="Edit-modal-title"
           variant="h6"
           fontWeight={"700"}
           component="h2"
         >
-          Edit User Details
+          Add New User
         </Typography>
         <TextField
           sx={{ my: 2 }}
@@ -99,4 +116,4 @@ const EditModal = ({
   );
 };
 
-export default EditModal;
+export default AddModal;
