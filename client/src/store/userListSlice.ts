@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { DeleteModalProps } from "../components/modal/deleteModal/typing";
 
 const initialState = {
   users: [] as { id: string; name: string; email: string }[],

@@ -20,3 +20,9 @@
 .logo-white {
   filter: invert(100%);
 }
+
+.usersList_container{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

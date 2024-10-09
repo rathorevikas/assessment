@@ -66,8 +66,9 @@ const AddModal = ({ openAddModal, setOpenAddModal }: AddModalProps) => {
     <Modal
       open={openAddModal}
       onClose={handleClose}
-      aria-labelledby="Delete-modal"
-      aria-describedby="Delete-modal-description"
+      data-testid="Add-user-modal-open"
+      aria-labelledby="Add-user-modal"
+      aria-describedby="Add-user-modal-description"
     >
       <Box sx={style}>
         <Typography

@@ -17,6 +17,7 @@ const UserListItem = ({ user }: { user: any }) => {
         <Grid container className="user_list_options">
           <Grid>
             <IconButton
+             data-testid="edit_user_button"
               sx={{ zIndex: 2 }}
               onClick={() => setOpenEditModal(true)}
             >
@@ -25,6 +26,7 @@ const UserListItem = ({ user }: { user: any }) => {
           </Grid>
           <Grid>
             <IconButton
+              data-testid="delete_user_button"
               sx={{ zIndex: 2 }}
               onClick={() => setOpenDeleteModal(true)}
             >
@@ -33,17 +35,22 @@ const UserListItem = ({ user }: { user: any }) => {
           </Grid>
         </Grid>
         <Grid className="user_list_data">
-          <Grid>
-            <Typography fontWeight={"700"}>Id:</Typography>
-            <Typography width={"190px"}> {user?.id}</Typography>
+          <Grid mb={1}>
+            <Typography sx={{ color: "#E3963E" }} fontWeight={"700"}>
+              Id:
+            </Typography>
+            <Typography sx={{ color: "#36454F" }} width={"190px"}>
+              {" "}
+              {user?.id}
+            </Typography>
+          </Grid>
+          <Grid mb={1}>
+            <PersonIcon sx={{ color: "#E3963E" }} />
+            <Typography sx={{ color: "#36454F" }}>{user?.name}</Typography>
           </Grid>
           <Grid>
-            <PersonIcon />
-            <Typography>{user?.name}</Typography>
-          </Grid>
-          <Grid>
-            <EmailIcon />
-            <Typography>{user?.email}</Typography>
+            <EmailIcon sx={{ color: "#E3963E" }} />
+            <Typography sx={{ color: "#36454F" }}>{user?.email}</Typography>
           </Grid>
         </Grid>
       </Paper>

@@ -1,5 +1,5 @@
 export interface DeleteModalProps {
   id: string;
   openDeleteModal: boolean;
-  setOpenDeleteModal: any;
+  setOpenDeleteModal: (arg: boolean) => void;
 }

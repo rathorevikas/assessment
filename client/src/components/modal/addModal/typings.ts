@@ -1,10 +1,10 @@
 export interface AddModalProps {
   openAddModal: boolean;
-  setOpenAddModal: any;
+  setOpenAddModal: (arg: boolean) => void;
 }
 
-export interface Iuser{
-    id: string
-    name: string
-    email: string
-} 
+export interface Iuser {
+  id: string;
+  name: string;
+  email: string;
+}
