@@ -44,7 +44,6 @@ const DeleteModal = ({
     <Modal
       open={openDeleteModal}
       onClose={handleClose}
-      data-testid="Delete-modal-open"
       aria-labelledby="Delete-modal"
       aria-describedby="Delete-modal-description"
     >

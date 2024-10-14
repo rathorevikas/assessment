@@ -66,13 +66,12 @@ const AddModal = ({ openAddModal, setOpenAddModal }: AddModalProps) => {
     <Modal
       open={openAddModal}
       onClose={handleClose}
-      data-testid="Add-user-modal-open"
       aria-labelledby="Add-user-modal"
       aria-describedby="Add-user-modal-description"
     >
       <Box sx={style}>
         <Typography
-          id="Edit-modal-title"
+          id="Add-modal-title"
           variant="h6"
           fontWeight={"700"}
           component="h2"

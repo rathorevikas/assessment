@@ -17,7 +17,6 @@ const UserListItem = ({ user }: { user: any }) => {
         <Grid container className="user_list_options">
           <Grid>
             <IconButton
-             data-testid="edit_user_button"
               sx={{ zIndex: 2 }}
               onClick={() => setOpenEditModal(true)}
             >
@@ -26,7 +25,6 @@ const UserListItem = ({ user }: { user: any }) => {
           </Grid>
           <Grid>
             <IconButton
-              data-testid="delete_user_button"
               sx={{ zIndex: 2 }}
               onClick={() => setOpenDeleteModal(true)}
             >
