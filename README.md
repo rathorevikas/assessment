@@ -1,4 +1,4 @@
-# DoseSpot Front End Interview Assessment
+#Assessment
 
 This repository contains the outline of a React front end web application and a backend server for creating APIs. Please review the problem statement below and feel free to ask any clarifying questions to the recruiter. When you are ready, clone this repo and send it to the recruiter after you complete the exercise.
 
